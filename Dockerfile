@@ -81,7 +81,7 @@ ENV UID ${UID}
 
 RUN apk --no-cache add shadow && usermod -u ${UID} www-data && groupmod -g ${GID} www-data
 
-ENV PATH="${PATH}:/home/application/.composer/vendor/bin"
+ENV PATH="${PATH}:/root/.composer/vendor/bin"
 
 
 WORKDIR /srv/app

@@ -12,7 +12,7 @@ up:
 	$(dc) up -d
 
 build:
-	$(dc) build --pull
+	$(dc) build --pull --build-arg UID=${uid} --build-arg GID=${gid}
 
 stop:
 	$(dc) stop
