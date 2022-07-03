@@ -5,6 +5,8 @@ exec := $(dc) exec
 webexec := $(exec) --user www-data
 rwebexec := $(exec) --user root
 
+setup : build up migrate
+
 status:
 	$(dc) ps
 
@@ -31,4 +33,11 @@ rsh:
 
 destroy:
 	$(dc) down -v --remove-orphans
+
+migrate:
+	$(webexec) php ./bin/console doctrine:migration:migrate -n
+
+test:
+	$(webexec) --env APP_ENV=test php ./bin/console doctrine:database:create --if-not-exists
+	$(webexec) php ./bin/phpunit
 
