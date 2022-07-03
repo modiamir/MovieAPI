@@ -73,25 +73,18 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-ENV PATH="${PATH}:/root/.composer/vendor/bin"
+ARG GID=1000
+ENV GID ${GID}
+
+ARG UID=1000
+ENV UID ${UID}
+
+RUN apk --no-cache add shadow && usermod -u ${UID} www-data && groupmod -g ${GID} www-data
+
+ENV PATH="${PATH}:/home/application/.composer/vendor/bin"
+
 
 WORKDIR /srv/app
-
-# Allow to choose skeleton
-ARG SKELETON="symfony/skeleton"
-ENV SKELETON ${SKELETON}
-
-# Allow to use development versions of Symfony
-ARG STABILITY="stable"
-ENV STABILITY ${STABILITY}
-
-# Allow to select skeleton version
-ARG SYMFONY_VERSION=""
-ENV SYMFONY_VERSION ${SYMFONY_VERSION}
-
-# Download the Symfony skeleton and leverage Docker cache layers
-RUN composer create-project "${SKELETON} ${SYMFONY_VERSION}" . --stability=$STABILITY --prefer-dist --no-dev --no-progress --no-interaction; \
-	composer clear-cache
 
 ###> recipes ###
 ###< recipes ###
@@ -104,7 +97,7 @@ RUN set -eux; \
 	composer dump-autoload --classmap-authoritative --no-dev; \
 	composer symfony:dump-env prod; \
 	composer run-script --no-dev post-install-cmd; \
-	chmod +x bin/console; sync
+
 VOLUME /srv/app/var
 
 ENTRYPOINT ["docker-entrypoint"]
