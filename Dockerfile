@@ -96,12 +96,23 @@ RUN set -eux; \
 	composer install --prefer-dist --no-dev --no-progress --no-scripts --no-interaction; \
 	composer dump-autoload --classmap-authoritative --no-dev; \
 	composer symfony:dump-env prod; \
-	composer run-script --no-dev post-install-cmd; \
+	composer run-script --no-dev post-install-cmd;
 
 VOLUME /srv/app/var
 
 ENTRYPOINT ["docker-entrypoint"]
 CMD ["php-fpm"]
+
+
+FROM symfony_php AS symfony_php_debug
+
+ARG XDEBUG_VERSION=3.1.2
+RUN set -eux; \
+	apk add --no-cache --virtual .build-deps $PHPIZE_DEPS; \
+	pecl install xdebug-$XDEBUG_VERSION; \
+	docker-php-ext-enable xdebug; \
+	apk del .build-deps
+
 
 FROM caddy:${CADDY_VERSION}-builder-alpine AS symfony_caddy_builder
 
