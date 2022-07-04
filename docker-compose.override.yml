@@ -5,7 +5,7 @@ services:
   php:
     build:
       context: .
-      target: symfony_php_debug
+      target: symfony_php_dev
 
     volumes:
       # The "cached" option has no effect on Linux but improves performance on Mac

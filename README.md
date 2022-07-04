@@ -6,6 +6,7 @@ This repository is my take-home project for interview process at StartOfService 
 
 ```shell
 make setup
+make migrate
 ```
 
 

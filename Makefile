@@ -5,7 +5,7 @@ exec := $(dc) exec
 webexec := $(exec) --user www-data
 rwebexec := $(exec) --user root
 
-setup : build up migrate
+setup : build up
 
 status:
 	$(dc) ps
@@ -39,5 +39,6 @@ migrate:
 
 test:
 	$(webexec) --env APP_ENV=test php ./bin/console doctrine:database:create --if-not-exists
+	$(webexec) --env APP_ENV=test php ./bin/console doctrine:migration:migrate --no-interaction
 	$(webexec) php ./bin/phpunit
 
