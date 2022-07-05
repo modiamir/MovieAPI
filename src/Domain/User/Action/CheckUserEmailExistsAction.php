@@ -10,7 +10,7 @@ class CheckUserEmailExistsAction
     {
     }
 
-    public function check(string $email)
+    public function check(string $email): bool
     {
         return !is_null($this->userRepository->findOneByEmail($email));
     }

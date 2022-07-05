@@ -2,6 +2,7 @@
 
 namespace App\Domain\User\Action;
 
+use App\Domain\User\Entity\User;
 use App\Domain\User\Repository\UserRepositoryInterface;
 
 class GetUserByAccessTokenAction
@@ -10,7 +11,7 @@ class GetUserByAccessTokenAction
     {
     }
 
-    public function get(string $accessToken)
+    public function get(string $accessToken): ?User
     {
         return $this->userRepository->findOneByAccessToken($accessToken);
     }
