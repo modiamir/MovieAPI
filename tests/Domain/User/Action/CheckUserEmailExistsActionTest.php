@@ -7,11 +7,11 @@ use App\Domain\User\Entity\User;
 use App\Domain\User\Repository\UserRepositoryInterface;
 use App\Factory\UserFactory;
 use App\Tests\IntegrationTestCase;
-use App\Tests\UnitTest;
+use App\Tests\UnitTestCase;
 use Mockery;
 use Mockery\MockInterface;
 
-class CheckUserEmailExistsActionTest extends UnitTest
+class CheckUserEmailExistsActionTest extends UnitTestCase
 {
     function test_non_existing_email()
     {

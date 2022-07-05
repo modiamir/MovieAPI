@@ -12,13 +12,13 @@ use App\Domain\User\Service\UserPasswordService;
 use App\Domain\User\Service\UserPersistenceServiceInterface;
 use App\Factory\UserFactory;
 use App\Tests\IntegrationTestCase;
-use App\Tests\UnitTest;
+use App\Tests\UnitTestCase;
 use Hamcrest\Core\IsEqual;
 use Mockery;
 use Mockery\MockInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-class RegisterUserActionTest extends UnitTest
+class RegisterUserActionTest extends UnitTestCase
 {
     function test_register_successfully()
     {

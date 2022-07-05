@@ -12,12 +12,12 @@ use App\Domain\User\Service\UniqueTokenGeneratorInterface;
 use App\Domain\User\Service\UserPasswordService;
 use App\Domain\User\Service\UserPersistenceServiceInterface;
 use App\Factory\UserFactory;
-use App\Tests\UnitTest;
+use App\Tests\UnitTestCase;
 use Hamcrest\Core\IsEqual;
 use Mockery;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-class AuthenticateUserActionTest extends UnitTest
+class AuthenticateUserActionTest extends UnitTestCase
 {
     function test_authenticate_with_correct_credentials()
     {

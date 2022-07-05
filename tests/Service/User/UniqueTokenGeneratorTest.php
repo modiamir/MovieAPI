@@ -3,9 +3,9 @@
 namespace App\Tests\Service\User;
 
 use App\Service\User\UniqueTokenGenerator;
-use App\Tests\UnitTest;
+use App\Tests\UnitTestCase;
 
-class UniqueTokenGeneratorTest extends UnitTest
+class UniqueTokenGeneratorTest extends UnitTestCase
 {
     function test_generate()
     {

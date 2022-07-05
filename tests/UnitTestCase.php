@@ -6,7 +6,7 @@ use Mockery\Adapter\Phpunit\MockeryPHPUnitIntegration;
 use PHPUnit\Framework\TestCase;
 use Zenstruck\Foundry\Test\Factories;
 
-class UnitTest extends TestCase
+class UnitTestCase extends TestCase
 {
     use MockeryPHPUnitIntegration;
     use FakerTrait;
