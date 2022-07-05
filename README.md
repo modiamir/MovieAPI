@@ -1,4 +1,6 @@
-# StartOfService
+# Movie API
+![PHPUnit](https://github.com/modiamir/MovieAPI/actions/workflows/phpunit.yml/badge.svg)
+![PHPCS](https://github.com/modiamir/MovieAPI/actions/workflows/phpcs.yml/badge.svg)
 
 This repository is my take-home project for interview process at ### company.
 
