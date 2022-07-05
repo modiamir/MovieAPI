@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Domain\Movie\Entity\Movie;
+use App\Domain\Movie\Repository\MovieRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -14,7 +15,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Movie[]    findAll()
  * @method Movie[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class MovieRepository extends ServiceEntityRepository
+class MovieRepository extends ServiceEntityRepository implements MovieRepositoryInterface
 {
     public function __construct(ManagerRegistry $registry)
     {
@@ -37,5 +38,10 @@ class MovieRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function findById(int $id): ?Movie
+    {
+        return $this->find($id);
     }
 }

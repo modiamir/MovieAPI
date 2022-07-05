@@ -8,6 +8,7 @@ use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: MovieRepository::class)]
 #[ORM\Table(name: '`movie`')]
@@ -19,15 +20,18 @@ class Movie
     private ?int $id = null;
 
     #[ORM\Column(type: 'string')]
+    #[Groups(['movie.details'])]
     private ?string $name = null;
 
     #[ORM\OneToMany(mappedBy: 'movie', targetEntity: Cast::class, cascade: ["PERSIST"])]
     private Collection $casts;
 
     #[ORM\Column(type: 'date')]
+    #[Groups(['movie.details'])]
     private ?DateTimeInterface $releaseDate = null;
 
     #[ORM\Column(type: 'string')]
+    #[Groups(['movie.details'])]
     private ?string $director = null;
 
     #[ORM\OneToMany(mappedBy: 'movie', targetEntity: Rating::class, cascade: ["PERSIST"])]
