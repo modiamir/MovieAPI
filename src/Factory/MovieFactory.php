@@ -36,9 +36,9 @@ final class MovieFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'name' => self::faker()->text(),
+            'name' => self::faker()->word(),
             'releaseDate' => self::faker()->datetime(),
-            'director' => self::faker()->text(),
+            'director' => self::faker()->word(),
             'owner' => UserFactory::createOne(),
         ];
     }

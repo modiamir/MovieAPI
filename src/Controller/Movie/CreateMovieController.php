@@ -18,7 +18,7 @@ class CreateMovieController
     ) {
     }
 
-    #[Route("/api/v1/movies")]
+    #[Route("/api/v1/movies", methods: ["POST"])]
     public function __invoke(CreateMovieDTO $dto)
     {
         /** @var User $user */

@@ -20,18 +20,18 @@ class Movie
     private ?int $id = null;
 
     #[ORM\Column(type: 'string')]
-    #[Groups(['movie.details'])]
+    #[Groups(['movie.details', 'movie.list'])]
     private ?string $name = null;
 
     #[ORM\OneToMany(mappedBy: 'movie', targetEntity: Cast::class, cascade: ["PERSIST"])]
     private Collection $casts;
 
     #[ORM\Column(type: 'date')]
-    #[Groups(['movie.details'])]
+    #[Groups(['movie.details', 'movie.list'])]
     private ?DateTimeInterface $releaseDate = null;
 
     #[ORM\Column(type: 'string')]
-    #[Groups(['movie.details'])]
+    #[Groups(['movie.details', 'movie.list'])]
     private ?string $director = null;
 
     #[ORM\OneToMany(mappedBy: 'movie', targetEntity: Rating::class, cascade: ["PERSIST"])]

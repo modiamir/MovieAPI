@@ -15,7 +15,7 @@ class RegisterUserController
     }
 
     /**
-     * @Route("/api/auth/register")
+     * @Route("/api/auth/register", methods={"POST"})
      */
     public function __invoke(Request $request, RegisterUserDTO $dto): Response
     {

@@ -24,7 +24,7 @@ class MovieNormalizer implements NormalizerInterface, CacheableSupportsMethodInt
 
         $data = $this->normalizer->normalize($object, $format, $context);
 
-        if (in_array('movie.details', $context['groups'])) {
+        if (!empty(array_intersect(['movie.details', 'movie.list'], $context['groups']))) {
             $data['casts'] = $object->getCasts()->map(fn(Cast $cast) => $cast->getName())->toArray();
             $data['ratings'] = array_reduce($object->getRatings()->toArray(), function ($ratings, Rating $rating) {
                 $ratings[$rating->getPlatformName()] = $rating->getRate();

@@ -20,7 +20,7 @@ class LoginController
     }
 
     /**
-     * @Route("/api/auth/login")
+     * @Route("/api/auth/login", methods={"POST"})
      */
     public function __invoke(Request $request, AuthenticateUserDTO $dto): Response
     {

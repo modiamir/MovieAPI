@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Tests\Domain\Movie;
+namespace App\Tests\Domain\Movie\Action;
 
 use App\Domain\Movie\Action\CreateMovieAction;
 use App\Domain\Movie\DTO\CreateMovieDTO;
-use App\Domain\Movie\Entity\Cast;
 use App\Domain\Movie\Entity\Movie;
-use App\Domain\Movie\Entity\Rating;
 use App\Domain\Movie\Service\MovieCreator;
 use App\Domain\Movie\Service\MoviePersistenceServiceInterface;
 use App\Factory\UserFactory;

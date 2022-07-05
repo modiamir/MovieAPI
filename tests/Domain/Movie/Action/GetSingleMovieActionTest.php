@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Domain\Movie;
+namespace App\Tests\Domain\Movie\Action;
 
 use App\Domain\Movie\Action\GetSingleMovieAction;
 use App\Domain\Movie\Entity\Movie;

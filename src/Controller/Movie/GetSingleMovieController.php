@@ -21,7 +21,7 @@ class GetSingleMovieController
     ) {
     }
 
-    #[Route("/api/v1/movies/{movieId}")]
+    #[Route("/api/v1/movies/{movieId}", methods: ["GET"])]
     public function __invoke(int $movieId): Response
     {
         $movie = $this->getSingleMovieAction->get($movieId);

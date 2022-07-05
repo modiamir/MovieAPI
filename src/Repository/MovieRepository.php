@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Domain\Movie\Entity\Movie;
 use App\Domain\Movie\Repository\MovieRepositoryInterface;
+use App\Domain\User\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -43,5 +44,10 @@ class MovieRepository extends ServiceEntityRepository implements MovieRepository
     public function findById(int $id): ?Movie
     {
         return $this->find($id);
+    }
+
+    public function findByOwner(User $user): array
+    {
+        return $this->findBy(['owner' => $user]);
     }
 }
