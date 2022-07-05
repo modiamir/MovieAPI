@@ -34,6 +34,7 @@ class RegisterUserActionTest extends UnitTestCase
             'email' => $registerUserDTO->email,
             'roles' => ['ROLE_USER'],
             'password' => "plain:$registerUserDTO->password",
+            'accessToken' => null
         ])->withoutPersisting()->create()->object();
         $userRepository->shouldReceive('findOneByEmail')->with($registerUserDTO->email)->andReturn(null);
 

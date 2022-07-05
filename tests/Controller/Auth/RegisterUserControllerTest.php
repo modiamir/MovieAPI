@@ -74,7 +74,6 @@ class RegisterUserControllerTest extends ApplicationTestCase
         $client->jsonRequest('POST', self::ROUTE, $data);
 
         // Assert
-
         $this->assertResponseStatusCodeSame(Response::HTTP_UNPROCESSABLE_ENTITY);
     }
 

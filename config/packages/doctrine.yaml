@@ -15,6 +15,11 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Domain/User/Entity'
                 prefix: 'App\Domain\User\Entity'
                 alias: User
+            App\Domain\Movie\Entity:
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Domain/Movie/Entity'
+                prefix: 'App\Domain\Movie\Entity'
+                alias: Movie
 when@test:
     doctrine:
         dbal:
