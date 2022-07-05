@@ -27,11 +27,11 @@ class GetSingleMovieController
         $movie = $this->getSingleMovieAction->get($movieId);
 
         if (is_null($movie)) {
-            throw new NotFoundHttpException();
+            return new Response(status: Response::HTTP_NOT_FOUND);
         }
 
         if (!$this->authorizationChecker->isGranted(MovieVoter::VIEW, $movie)) {
-            throw new AccessDeniedHttpException();
+            return new Response(status: Response::HTTP_FORBIDDEN);
         }
 
         return new JsonResponse($this->normalizer->normalize($movie, 'json', ['groups' => ['movie.details']]));

@@ -24,6 +24,7 @@ class GetMovieListControllerTest extends ApplicationTestCase
 
         $expectedResponseBody = [
             [
+                'id' => $movies[0]->getId(),
                 'name' => $movies[0]->getName(),
                 'casts' => [$movies[0]->getCasts()->first()->getName()],
                 'release_date' => $movies[0]->getReleaseDate()->format('d-m-Y'),

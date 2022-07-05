@@ -17,6 +17,7 @@ class Movie
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
+    #[Groups(['movie.details', 'movie.list'])]
     private ?int $id = null;
 
     #[ORM\Column(type: 'string')]

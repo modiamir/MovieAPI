@@ -23,6 +23,7 @@ class GetSingleMovieControllerTest extends ApplicationTestCase
         ]);
 
         $expectedResponseBody = [
+            'id' => $movie->getId(),
             'name' => $movie->getName(),
             'casts' => [$movie->getCasts()->first()->getName()],
             'release_date' => $movie->getReleaseDate()->format('d-m-Y'),

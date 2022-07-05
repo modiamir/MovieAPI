@@ -22,14 +22,23 @@ class TokenAuthenticator extends AbstractAuthenticator
 
     public function supports(Request $request): ?bool
     {
-        return $request->headers->has('Authorization') &&
-            str_starts_with($request->headers->get('Authorization'), 'Bearer ');
+        return true;
     }
 
     public function authenticate(Request $request): Passport
     {
+        if (!$request->headers->has('Authorization')) {
+            throw new CustomUserMessageAuthenticationException('Authorization header is missing');
+        }
+
+        if (!str_starts_with($request->headers->get('Authorization'), 'Bearer ')) {
+            throw new CustomUserMessageAuthenticationException(
+                'Authorization header must contain a bearer token'
+            );
+        }
+
         $apiToken = substr($request->headers->get('Authorization'), 7);
-        if (null === $apiToken) {
+        if (empty($apiToken)) {
             // The token header was empty, authentication fails with HTTP Status
             // Code 401 "Unauthorized"
             throw new CustomUserMessageAuthenticationException('No API token provided');
