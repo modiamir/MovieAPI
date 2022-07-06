@@ -36,3 +36,11 @@ services:
     ports:
       - "5432"
 ###< doctrine/doctrine-bundle ###
+
+###> symfony/mailer ###
+  mailer:
+    image: schickling/mailcatcher
+    ports: 
+      - 1025
+      - 1080:1080
+###< symfony/mailer ###

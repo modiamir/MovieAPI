@@ -6,6 +6,8 @@ use App\Domain\Movie\Action\CreateMovieAction;
 use App\Domain\Movie\DTO\CreateMovieDTO;
 use App\Domain\Movie\Entity\Movie;
 use App\Domain\Movie\Service\MovieCreator;
+use App\Domain\Movie\Service\MovieEmailSenderInterface;
+use App\Domain\Movie\Service\MovieEmailService;
 use App\Domain\Movie\Service\MoviePersistenceServiceInterface;
 use App\Factory\UserFactory;
 use App\Tests\UnitTestCase;
@@ -29,7 +31,9 @@ class CreateMovieActionTest extends UnitTestCase
 
         $movieCreator = new MovieCreator();
         $moviePersistenceService = \Mockery::spy(MoviePersistenceServiceInterface::class);
-        $action = new CreateMovieAction($movieCreator, $moviePersistenceService);
+        $movieEmailSender = \Mockery::spy(MovieEmailSenderInterface::class);
+        $movieEmailService = new MovieEmailService($movieEmailSender);
+        $action = new CreateMovieAction($movieCreator, $moviePersistenceService, $movieEmailService);
 
         // Act
         $result = $action->create($dto, $owner);
@@ -44,6 +48,10 @@ class CreateMovieActionTest extends UnitTestCase
         $this->assertEquals($dto->ratings["imdb"], $result->getRatings()->first()->getRate());
         $this->assertEquals($owner, $result->getOwner());
 
-        $moviePersistenceService->shouldHaveReceived('save')->with(IsEqual::equalTo($result));
+        $moviePersistenceService->shouldHaveReceived('save')->with(IsEqual::equalTo($result))->once();
+        $movieEmailSender
+            ->shouldHaveReceived('sendEmail')
+            ->with("Movie created.", $result->getOwner()->getEmail(), "Movie with name '{$result->getName()}' created")
+            ->once();
     }
 }
