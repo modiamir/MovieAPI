@@ -2,9 +2,7 @@
 
 namespace App\Domain\Movie\DTO;
 
-use App\DTO\DTOInterface;
-use Symfony\Component\Validator\Constraints\Date;
-use Symfony\Component\Validator\Constraints\Length;
+use App\Contracts\DTO\DTOInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Type;
 

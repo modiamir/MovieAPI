@@ -2,7 +2,7 @@
 
 namespace App\ArgumentResolver;
 
-use App\DTO\DTOInterface;
+use App\Contracts\DTO\DTOInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Controller\ArgumentValueResolverInterface;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;

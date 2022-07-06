@@ -2,7 +2,7 @@
 
 namespace App\Domain\User\DTO;
 
-use App\DTO\DTOInterface;
+use App\Contracts\DTO\DTOInterface;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
