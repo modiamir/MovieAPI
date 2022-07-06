@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Tests\Repository;
+namespace App\Tests\Infrastructure\User\Repository;
 
 use App\Factory\UserFactory;
-use App\Repository\UserRepository;
+use App\Infrastructure\User\Repository\UserRepository;
 use App\Tests\IntegrationTestCase;
 
 class UserRepositoryTest extends IntegrationTestCase

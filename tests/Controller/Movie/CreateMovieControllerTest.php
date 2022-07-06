@@ -4,7 +4,7 @@ namespace App\Tests\Controller\Movie;
 
 use App\Domain\User\Entity\User;
 use App\Factory\UserFactory;
-use App\Repository\MovieRepository;
+use App\Infrastructure\Movie\Repository\MovieRepository;
 use App\Tests\ApplicationTestCase;
 use Symfony\Component\HttpFoundation\Response;
 

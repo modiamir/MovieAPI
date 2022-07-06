@@ -3,7 +3,7 @@
 namespace App\Tests\Controller\Auth;
 
 use App\Factory\UserFactory;
-use App\Repository\UserRepository;
+use App\Infrastructure\User\Repository\UserRepository;
 use App\Tests\ApplicationTestCase;
 use Symfony\Component\HttpFoundation\Response;
 

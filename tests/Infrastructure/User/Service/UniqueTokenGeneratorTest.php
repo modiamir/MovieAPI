@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Tests\Service\User;
+namespace App\Tests\Infrastructure\User\Service;
 
-use App\Service\User\UniqueTokenGenerator;
+use App\Infrastructure\User\Service\UniqueTokenGenerator;
 use App\Tests\UnitTestCase;
 
 class UniqueTokenGeneratorTest extends UnitTestCase

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Tests\Repository;
+namespace App\Tests\Infrastructure\Movie\Repository;
 
 use App\Factory\CastFactory;
 use App\Factory\MovieFactory;
 use App\Factory\RatingFactory;
-use App\Repository\MovieRepository;
+use App\Infrastructure\Movie\Repository\MovieRepository;
 use App\Tests\IntegrationTestCase;
 
 class MovieRepositoryTest extends IntegrationTestCase

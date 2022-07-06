@@ -3,10 +3,10 @@
 namespace App\Factory;
 
 use App\Domain\Movie\Entity\Movie;
-use App\Repository\MovieRepository;
-use Zenstruck\Foundry\RepositoryProxy;
+use App\Infrastructure\Movie\Repository\MovieRepository;
 use Zenstruck\Foundry\ModelFactory;
 use Zenstruck\Foundry\Proxy;
+use Zenstruck\Foundry\RepositoryProxy;
 
 /**
  * @extends ModelFactory<Movie>

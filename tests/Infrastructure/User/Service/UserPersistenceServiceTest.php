@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Tests\Service\User;
+namespace App\Tests\Infrastructure\User\Service;
 
 use App\Domain\User\Entity\User;
 use App\Factory\UserFactory;
-use App\Repository\UserRepository;
-use App\Service\User\UserPersistenceService;
+use App\Infrastructure\User\Repository\UserRepository;
+use App\Infrastructure\User\Service\UserPersistenceService;
 use App\Tests\IntegrationTestCase;
 
 class UserPersistenceServiceTest extends IntegrationTestCase

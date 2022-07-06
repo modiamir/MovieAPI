@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Service\Movie;
+namespace App\Infrastructure\Movie\Service;
 
 use App\Domain\Movie\Entity\Movie;
 use App\Domain\Movie\Service\MoviePersistenceServiceInterface;

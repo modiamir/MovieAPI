@@ -3,7 +3,7 @@
 namespace App\Domain\Movie\Entity;
 
 use App\Domain\User\Entity\User;
-use App\Repository\MovieRepository;
+use App\Infrastructure\Movie\Repository\MovieRepository;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;

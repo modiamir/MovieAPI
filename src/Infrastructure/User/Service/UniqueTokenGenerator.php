@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Service\User;
+namespace App\Infrastructure\User\Service;
 
 use App\Domain\User\Service\UniqueTokenGeneratorInterface;
 

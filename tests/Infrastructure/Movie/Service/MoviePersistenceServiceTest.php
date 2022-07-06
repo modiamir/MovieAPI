@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Tests\Service\Movie;
+namespace App\Tests\Infrastructure\Movie\Service;
 
 use App\Domain\Movie\Entity\Movie;
 use App\Factory\MovieFactory;
-use App\Repository\MovieRepository;
-use App\Service\Movie\MoviePersistenceService;
+use App\Infrastructure\Movie\Repository\MovieRepository;
+use App\Infrastructure\Movie\Service\MoviePersistenceService;
 use App\Tests\IntegrationTestCase;
 
 class MoviePersistenceServiceTest extends IntegrationTestCase
